@@ -10,33 +10,284 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdsRouteImport } from './routes/ads'
+import { Route as AfiliadosRouteImport } from './routes/afiliados'
+import { Route as AudienciasRouteImport } from './routes/audiencias'
+import { Route as EstoqueRouteImport } from './routes/estoque'
+import { Route as FinanceiroRouteImport } from './routes/financeiro'
+import { Route as FunilRouteImport } from './routes/funil'
+import { Route as InfluencersRouteImport } from './routes/influencers'
+import { Route as LiveShopRouteImport } from './routes/live-shop'
+import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as RankingRouteImport } from './routes/ranking'
+import { Route as RemarketingRouteImport } from './routes/remarketing'
+import { Route as TrackingRouteImport } from './routes/tracking'
+import { Route as UtmRouteImport } from './routes/utm'
+import { Route as FornecedoresIndexRouteImport } from './routes/fornecedores.index'
+import { Route as FornecedoresSupplierIdRouteImport } from './routes/fornecedores.$supplierId'
+import { Route as LojasIndexRouteImport } from './routes/lojas.index'
+import { Route as LojasStoreIdRouteImport } from './routes/lojas.$storeId'
+import { Route as PedidosIndexRouteImport } from './routes/pedidos.index'
+import { Route as PedidosOrderIdRouteImport } from './routes/pedidos.$orderId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdsRoute = AdsRouteImport.update({
+  id: '/ads',
+  path: '/ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AfiliadosRoute = AfiliadosRouteImport.update({
+  id: '/afiliados',
+  path: '/afiliados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AudienciasRoute = AudienciasRouteImport.update({
+  id: '/audiencias',
+  path: '/audiencias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstoqueRoute = EstoqueRouteImport.update({
+  id: '/estoque',
+  path: '/estoque',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceiroRoute = FinanceiroRouteImport.update({
+  id: '/financeiro',
+  path: '/financeiro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FunilRoute = FunilRouteImport.update({
+  id: '/funil',
+  path: '/funil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfluencersRoute = InfluencersRouteImport.update({
+  id: '/influencers',
+  path: '/influencers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveShopRoute = LiveShopRouteImport.update({
+  id: '/live-shop',
+  path: '/live-shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutosRoute = ProdutosRouteImport.update({
+  id: '/produtos',
+  path: '/produtos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RankingRoute = RankingRouteImport.update({
+  id: '/ranking',
+  path: '/ranking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RemarketingRoute = RemarketingRouteImport.update({
+  id: '/remarketing',
+  path: '/remarketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackingRoute = TrackingRouteImport.update({
+  id: '/tracking',
+  path: '/tracking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UtmRoute = UtmRouteImport.update({
+  id: '/utm',
+  path: '/utm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FornecedoresIndexRoute = FornecedoresIndexRouteImport.update({
+  id: '/fornecedores/',
+  path: '/fornecedores/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FornecedoresSupplierIdRoute = FornecedoresSupplierIdRouteImport.update({
+  id: '/fornecedores/$supplierId',
+  path: '/fornecedores/$supplierId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojasIndexRoute = LojasIndexRouteImport.update({
+  id: '/lojas/',
+  path: '/lojas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojasStoreIdRoute = LojasStoreIdRouteImport.update({
+  id: '/lojas/$storeId',
+  path: '/lojas/$storeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedidosIndexRoute = PedidosIndexRouteImport.update({
+  id: '/pedidos/',
+  path: '/pedidos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedidosOrderIdRoute = PedidosOrderIdRouteImport.update({
+  id: '/pedidos/$orderId',
+  path: '/pedidos/$orderId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ads': typeof AdsRoute
+  '/afiliados': typeof AfiliadosRoute
+  '/audiencias': typeof AudienciasRoute
+  '/estoque': typeof EstoqueRoute
+  '/financeiro': typeof FinanceiroRoute
+  '/funil': typeof FunilRoute
+  '/influencers': typeof InfluencersRoute
+  '/live-shop': typeof LiveShopRoute
+  '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
+  '/remarketing': typeof RemarketingRoute
+  '/tracking': typeof TrackingRoute
+  '/utm': typeof UtmRoute
+  '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
+  '/lojas/$storeId': typeof LojasStoreIdRoute
+  '/pedidos/$orderId': typeof PedidosOrderIdRoute
+  '/fornecedores/': typeof FornecedoresIndexRoute
+  '/lojas/': typeof LojasIndexRoute
+  '/pedidos/': typeof PedidosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ads': typeof AdsRoute
+  '/afiliados': typeof AfiliadosRoute
+  '/audiencias': typeof AudienciasRoute
+  '/estoque': typeof EstoqueRoute
+  '/financeiro': typeof FinanceiroRoute
+  '/funil': typeof FunilRoute
+  '/influencers': typeof InfluencersRoute
+  '/live-shop': typeof LiveShopRoute
+  '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
+  '/remarketing': typeof RemarketingRoute
+  '/tracking': typeof TrackingRoute
+  '/utm': typeof UtmRoute
+  '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
+  '/lojas/$storeId': typeof LojasStoreIdRoute
+  '/pedidos/$orderId': typeof PedidosOrderIdRoute
+  '/fornecedores': typeof FornecedoresIndexRoute
+  '/lojas': typeof LojasIndexRoute
+  '/pedidos': typeof PedidosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ads': typeof AdsRoute
+  '/afiliados': typeof AfiliadosRoute
+  '/audiencias': typeof AudienciasRoute
+  '/estoque': typeof EstoqueRoute
+  '/financeiro': typeof FinanceiroRoute
+  '/funil': typeof FunilRoute
+  '/influencers': typeof InfluencersRoute
+  '/live-shop': typeof LiveShopRoute
+  '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
+  '/remarketing': typeof RemarketingRoute
+  '/tracking': typeof TrackingRoute
+  '/utm': typeof UtmRoute
+  '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
+  '/lojas/$storeId': typeof LojasStoreIdRoute
+  '/pedidos/$orderId': typeof PedidosOrderIdRoute
+  '/fornecedores/': typeof FornecedoresIndexRoute
+  '/lojas/': typeof LojasIndexRoute
+  '/pedidos/': typeof PedidosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ads'
+    | '/afiliados'
+    | '/audiencias'
+    | '/estoque'
+    | '/financeiro'
+    | '/funil'
+    | '/influencers'
+    | '/live-shop'
+    | '/produtos'
+    | '/ranking'
+    | '/remarketing'
+    | '/tracking'
+    | '/utm'
+    | '/fornecedores/$supplierId'
+    | '/lojas/$storeId'
+    | '/pedidos/$orderId'
+    | '/fornecedores/'
+    | '/lojas/'
+    | '/pedidos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/ads'
+    | '/afiliados'
+    | '/audiencias'
+    | '/estoque'
+    | '/financeiro'
+    | '/funil'
+    | '/influencers'
+    | '/live-shop'
+    | '/produtos'
+    | '/ranking'
+    | '/remarketing'
+    | '/tracking'
+    | '/utm'
+    | '/fornecedores/$supplierId'
+    | '/lojas/$storeId'
+    | '/pedidos/$orderId'
+    | '/fornecedores'
+    | '/lojas'
+    | '/pedidos'
+  id:
+    | '__root__'
+    | '/'
+    | '/ads'
+    | '/afiliados'
+    | '/audiencias'
+    | '/estoque'
+    | '/financeiro'
+    | '/funil'
+    | '/influencers'
+    | '/live-shop'
+    | '/produtos'
+    | '/ranking'
+    | '/remarketing'
+    | '/tracking'
+    | '/utm'
+    | '/fornecedores/$supplierId'
+    | '/lojas/$storeId'
+    | '/pedidos/$orderId'
+    | '/fornecedores/'
+    | '/lojas/'
+    | '/pedidos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdsRoute: typeof AdsRoute
+  AfiliadosRoute: typeof AfiliadosRoute
+  AudienciasRoute: typeof AudienciasRoute
+  EstoqueRoute: typeof EstoqueRoute
+  FinanceiroRoute: typeof FinanceiroRoute
+  FunilRoute: typeof FunilRoute
+  InfluencersRoute: typeof InfluencersRoute
+  LiveShopRoute: typeof LiveShopRoute
+  ProdutosRoute: typeof ProdutosRoute
+  RankingRoute: typeof RankingRoute
+  RemarketingRoute: typeof RemarketingRoute
+  TrackingRoute: typeof TrackingRoute
+  UtmRoute: typeof UtmRoute
+  FornecedoresSupplierIdRoute: typeof FornecedoresSupplierIdRoute
+  LojasStoreIdRoute: typeof LojasStoreIdRoute
+  PedidosOrderIdRoute: typeof PedidosOrderIdRoute
+  FornecedoresIndexRoute: typeof FornecedoresIndexRoute
+  LojasIndexRoute: typeof LojasIndexRoute
+  PedidosIndexRoute: typeof PedidosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +299,163 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ads': {
+      id: '/ads'
+      path: '/ads'
+      fullPath: '/ads'
+      preLoaderRoute: typeof AdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/afiliados': {
+      id: '/afiliados'
+      path: '/afiliados'
+      fullPath: '/afiliados'
+      preLoaderRoute: typeof AfiliadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audiencias': {
+      id: '/audiencias'
+      path: '/audiencias'
+      fullPath: '/audiencias'
+      preLoaderRoute: typeof AudienciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estoque': {
+      id: '/estoque'
+      path: '/estoque'
+      fullPath: '/estoque'
+      preLoaderRoute: typeof EstoqueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/financeiro': {
+      id: '/financeiro'
+      path: '/financeiro'
+      fullPath: '/financeiro'
+      preLoaderRoute: typeof FinanceiroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/funil': {
+      id: '/funil'
+      path: '/funil'
+      fullPath: '/funil'
+      preLoaderRoute: typeof FunilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/influencers': {
+      id: '/influencers'
+      path: '/influencers'
+      fullPath: '/influencers'
+      preLoaderRoute: typeof InfluencersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live-shop': {
+      id: '/live-shop'
+      path: '/live-shop'
+      fullPath: '/live-shop'
+      preLoaderRoute: typeof LiveShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produtos': {
+      id: '/produtos'
+      path: '/produtos'
+      fullPath: '/produtos'
+      preLoaderRoute: typeof ProdutosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ranking': {
+      id: '/ranking'
+      path: '/ranking'
+      fullPath: '/ranking'
+      preLoaderRoute: typeof RankingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/remarketing': {
+      id: '/remarketing'
+      path: '/remarketing'
+      fullPath: '/remarketing'
+      preLoaderRoute: typeof RemarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tracking': {
+      id: '/tracking'
+      path: '/tracking'
+      fullPath: '/tracking'
+      preLoaderRoute: typeof TrackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/utm': {
+      id: '/utm'
+      path: '/utm'
+      fullPath: '/utm'
+      preLoaderRoute: typeof UtmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fornecedores/': {
+      id: '/fornecedores/'
+      path: '/fornecedores'
+      fullPath: '/fornecedores/'
+      preLoaderRoute: typeof FornecedoresIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fornecedores/$supplierId': {
+      id: '/fornecedores/$supplierId'
+      path: '/fornecedores/$supplierId'
+      fullPath: '/fornecedores/$supplierId'
+      preLoaderRoute: typeof FornecedoresSupplierIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lojas/': {
+      id: '/lojas/'
+      path: '/lojas'
+      fullPath: '/lojas/'
+      preLoaderRoute: typeof LojasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lojas/$storeId': {
+      id: '/lojas/$storeId'
+      path: '/lojas/$storeId'
+      fullPath: '/lojas/$storeId'
+      preLoaderRoute: typeof LojasStoreIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedidos/': {
+      id: '/pedidos/'
+      path: '/pedidos'
+      fullPath: '/pedidos/'
+      preLoaderRoute: typeof PedidosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedidos/$orderId': {
+      id: '/pedidos/$orderId'
+      path: '/pedidos/$orderId'
+      fullPath: '/pedidos/$orderId'
+      preLoaderRoute: typeof PedidosOrderIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdsRoute: AdsRoute,
+  AfiliadosRoute: AfiliadosRoute,
+  AudienciasRoute: AudienciasRoute,
+  EstoqueRoute: EstoqueRoute,
+  FinanceiroRoute: FinanceiroRoute,
+  FunilRoute: FunilRoute,
+  InfluencersRoute: InfluencersRoute,
+  LiveShopRoute: LiveShopRoute,
+  ProdutosRoute: ProdutosRoute,
+  RankingRoute: RankingRoute,
+  RemarketingRoute: RemarketingRoute,
+  TrackingRoute: TrackingRoute,
+  UtmRoute: UtmRoute,
+  FornecedoresSupplierIdRoute: FornecedoresSupplierIdRoute,
+  LojasStoreIdRoute: LojasStoreIdRoute,
+  PedidosOrderIdRoute: PedidosOrderIdRoute,
+  FornecedoresIndexRoute: FornecedoresIndexRoute,
+  LojasIndexRoute: LojasIndexRoute,
+  PedidosIndexRoute: PedidosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
