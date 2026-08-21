@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LiveShopRouteImport } from './routes/live-shop'
 import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as FornecedoresIndexRouteImport } from './routes/fornecedores.index'
 import { Route as LojasIndexRouteImport } from './routes/lojas.index'
 import { Route as LojasStoreIdRouteImport } from './routes/lojas.$storeId'
 import { Route as PedidosIndexRouteImport } from './routes/pedidos.index'
@@ -30,6 +31,11 @@ const LiveShopRoute = LiveShopRouteImport.update({
 const ProdutosRoute = ProdutosRouteImport.update({
   id: '/produtos',
   path: '/produtos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FornecedoresIndexRoute = FornecedoresIndexRouteImport.update({
+  id: '/fornecedores/',
+  path: '/fornecedores/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LojasIndexRoute = LojasIndexRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/produtos': typeof ProdutosRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
+  '/fornecedores/': typeof FornecedoresIndexRoute
   '/lojas/': typeof LojasIndexRoute
   '/pedidos/': typeof PedidosIndexRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/produtos': typeof ProdutosRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
+  '/fornecedores': typeof FornecedoresIndexRoute
   '/lojas': typeof LojasIndexRoute
   '/pedidos': typeof PedidosIndexRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/produtos': typeof ProdutosRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
+  '/fornecedores/': typeof FornecedoresIndexRoute
   '/lojas/': typeof LojasIndexRoute
   '/pedidos/': typeof PedidosIndexRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/produtos'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
+    | '/fornecedores/'
     | '/lojas/'
     | '/pedidos/'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/produtos'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
+    | '/fornecedores'
     | '/lojas'
     | '/pedidos'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/produtos'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
+    | '/fornecedores/'
     | '/lojas/'
     | '/pedidos/'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ProdutosRoute: typeof ProdutosRoute
   LojasStoreIdRoute: typeof LojasStoreIdRoute
   PedidosOrderIdRoute: typeof PedidosOrderIdRoute
+  FornecedoresIndexRoute: typeof FornecedoresIndexRoute
   LojasIndexRoute: typeof LojasIndexRoute
   PedidosIndexRoute: typeof PedidosIndexRoute
 }
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/produtos'
       fullPath: '/produtos'
       preLoaderRoute: typeof ProdutosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fornecedores/': {
+      id: '/fornecedores/'
+      path: '/fornecedores'
+      fullPath: '/fornecedores/'
+      preLoaderRoute: typeof FornecedoresIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lojas/': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProdutosRoute: ProdutosRoute,
   LojasStoreIdRoute: LojasStoreIdRoute,
   PedidosOrderIdRoute: PedidosOrderIdRoute,
+  FornecedoresIndexRoute: FornecedoresIndexRoute,
   LojasIndexRoute: LojasIndexRoute,
   PedidosIndexRoute: PedidosIndexRoute,
 }
