@@ -16,6 +16,7 @@ import { Route as FinanceiroRouteImport } from './routes/financeiro'
 import { Route as FunilRouteImport } from './routes/funil'
 import { Route as LiveShopRouteImport } from './routes/live-shop'
 import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as TrackingRouteImport } from './routes/tracking'
 import { Route as FornecedoresIndexRouteImport } from './routes/fornecedores.index'
 import { Route as FornecedoresSupplierIdRouteImport } from './routes/fornecedores.$supplierId'
 import { Route as LojasIndexRouteImport } from './routes/lojas.index'
@@ -58,6 +59,11 @@ const ProdutosRoute = ProdutosRouteImport.update({
   path: '/produtos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackingRoute = TrackingRouteImport.update({
+  id: '/tracking',
+  path: '/tracking',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FornecedoresIndexRoute = FornecedoresIndexRouteImport.update({
   id: '/fornecedores/',
   path: '/fornecedores/',
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/funil': typeof FunilRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/tracking': typeof TrackingRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/funil': typeof FunilRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/tracking': typeof TrackingRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/funil': typeof FunilRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/tracking': typeof TrackingRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/funil'
     | '/live-shop'
     | '/produtos'
+    | '/tracking'
     | '/fornecedores/$supplierId'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/funil'
     | '/live-shop'
     | '/produtos'
+    | '/tracking'
     | '/fornecedores/$supplierId'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
@@ -175,6 +186,7 @@ export interface FileRouteTypes {
     | '/funil'
     | '/live-shop'
     | '/produtos'
+    | '/tracking'
     | '/fornecedores/$supplierId'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
@@ -191,6 +203,7 @@ export interface RootRouteChildren {
   FunilRoute: typeof FunilRoute
   LiveShopRoute: typeof LiveShopRoute
   ProdutosRoute: typeof ProdutosRoute
+  TrackingRoute: typeof TrackingRoute
   FornecedoresSupplierIdRoute: typeof FornecedoresSupplierIdRoute
   LojasStoreIdRoute: typeof LojasStoreIdRoute
   PedidosOrderIdRoute: typeof PedidosOrderIdRoute
@@ -250,6 +263,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tracking': {
+      id: '/tracking'
+      path: '/tracking'
+      fullPath: '/tracking'
+      preLoaderRoute: typeof TrackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fornecedores/': {
       id: '/fornecedores/'
       path: '/fornecedores'
@@ -303,6 +323,7 @@ const rootRouteChildren: RootRouteChildren = {
   FunilRoute: FunilRoute,
   LiveShopRoute: LiveShopRoute,
   ProdutosRoute: ProdutosRoute,
+  TrackingRoute: TrackingRoute,
   FornecedoresSupplierIdRoute: FornecedoresSupplierIdRoute,
   LojasStoreIdRoute: LojasStoreIdRoute,
   PedidosOrderIdRoute: PedidosOrderIdRoute,
