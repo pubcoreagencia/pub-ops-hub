@@ -19,7 +19,7 @@ export const Route = createFileRoute("/tracking")({
       { property: "og:description", content: "Cada evento rastreado da jornada do cliente." },
     ],
   }),
-  component: Tracking;
+  component: Tracking,
 });
 
 const LABEL: Record<TrackEvent["type"], string> = {
