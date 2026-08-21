@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EstoqueRouteImport } from './routes/estoque'
+import { Route as FinanceiroRouteImport } from './routes/financeiro'
 import { Route as LiveShopRouteImport } from './routes/live-shop'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as FornecedoresIndexRouteImport } from './routes/fornecedores.index'
@@ -28,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const EstoqueRoute = EstoqueRouteImport.update({
   id: '/estoque',
   path: '/estoque',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceiroRoute = FinanceiroRouteImport.update({
+  id: '/financeiro',
+  path: '/financeiro',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LiveShopRoute = LiveShopRouteImport.update({
@@ -74,6 +80,7 @@ const PedidosOrderIdRoute = PedidosOrderIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/estoque': typeof EstoqueRoute
+  '/financeiro': typeof FinanceiroRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/estoque': typeof EstoqueRoute
+  '/financeiro': typeof FinanceiroRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/estoque': typeof EstoqueRoute
+  '/financeiro': typeof FinanceiroRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/estoque'
+    | '/financeiro'
     | '/live-shop'
     | '/produtos'
     | '/fornecedores/$supplierId'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/estoque'
+    | '/financeiro'
     | '/live-shop'
     | '/produtos'
     | '/fornecedores/$supplierId'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/estoque'
+    | '/financeiro'
     | '/live-shop'
     | '/produtos'
     | '/fornecedores/$supplierId'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EstoqueRoute: typeof EstoqueRoute
+  FinanceiroRoute: typeof FinanceiroRoute
   LiveShopRoute: typeof LiveShopRoute
   ProdutosRoute: typeof ProdutosRoute
   FornecedoresSupplierIdRoute: typeof FornecedoresSupplierIdRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/estoque'
       fullPath: '/estoque'
       preLoaderRoute: typeof EstoqueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/financeiro': {
+      id: '/financeiro'
+      path: '/financeiro'
+      fullPath: '/financeiro'
+      preLoaderRoute: typeof FinanceiroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/live-shop': {
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EstoqueRoute: EstoqueRoute,
+  FinanceiroRoute: FinanceiroRoute,
   LiveShopRoute: LiveShopRoute,
   ProdutosRoute: ProdutosRoute,
   FornecedoresSupplierIdRoute: FornecedoresSupplierIdRoute,
