@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LiveShopRouteImport } from './routes/live-shop'
 import { Route as LojasIndexRouteImport } from './routes/lojas.index'
 import { Route as LojasStoreIdRouteImport } from './routes/lojas.$storeId'
+import { Route as PedidosIndexRouteImport } from './routes/pedidos.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const LojasStoreIdRoute = LojasStoreIdRouteImport.update({
   path: '/lojas/$storeId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PedidosIndexRoute = PedidosIndexRouteImport.update({
+  id: '/pedidos/',
+  path: '/pedidos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/live-shop': typeof LiveShopRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/lojas/': typeof LojasIndexRoute
+  '/pedidos/': typeof PedidosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/live-shop': typeof LiveShopRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/lojas': typeof LojasIndexRoute
+  '/pedidos': typeof PedidosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,20 @@ export interface FileRoutesById {
   '/live-shop': typeof LiveShopRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/lojas/': typeof LojasIndexRoute
+  '/pedidos/': typeof PedidosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/live-shop' | '/lojas/$storeId' | '/lojas/'
+  fullPaths: '/' | '/live-shop' | '/lojas/$storeId' | '/lojas/' | '/pedidos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/live-shop' | '/lojas/$storeId' | '/lojas'
-  id: '__root__' | '/' | '/live-shop' | '/lojas/$storeId' | '/lojas/'
+  to: '/' | '/live-shop' | '/lojas/$storeId' | '/lojas' | '/pedidos'
+  id:
+    | '__root__'
+    | '/'
+    | '/live-shop'
+    | '/lojas/$storeId'
+    | '/lojas/'
+    | '/pedidos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +82,7 @@ export interface RootRouteChildren {
   LiveShopRoute: typeof LiveShopRoute
   LojasStoreIdRoute: typeof LojasStoreIdRoute
   LojasIndexRoute: typeof LojasIndexRoute
+  PedidosIndexRoute: typeof PedidosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +115,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LojasStoreIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pedidos/': {
+      id: '/pedidos/'
+      path: '/pedidos'
+      fullPath: '/pedidos/'
+      preLoaderRoute: typeof PedidosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +130,7 @@ const rootRouteChildren: RootRouteChildren = {
   LiveShopRoute: LiveShopRoute,
   LojasStoreIdRoute: LojasStoreIdRoute,
   LojasIndexRoute: LojasIndexRoute,
+  PedidosIndexRoute: PedidosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
