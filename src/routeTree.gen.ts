@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdsRouteImport } from './routes/ads'
+import { Route as AudienciasRouteImport } from './routes/audiencias'
 import { Route as EstoqueRouteImport } from './routes/estoque'
 import { Route as FinanceiroRouteImport } from './routes/financeiro'
 import { Route as FunilRouteImport } from './routes/funil'
@@ -33,6 +34,11 @@ const IndexRoute = IndexRouteImport.update({
 const AdsRoute = AdsRouteImport.update({
   id: '/ads',
   path: '/ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AudienciasRoute = AudienciasRouteImport.update({
+  id: '/audiencias',
+  path: '/audiencias',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EstoqueRoute = EstoqueRouteImport.update({
@@ -104,6 +110,7 @@ const PedidosOrderIdRoute = PedidosOrderIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ads': typeof AdsRoute
+  '/audiencias': typeof AudienciasRoute
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/funil': typeof FunilRoute
@@ -121,6 +128,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ads': typeof AdsRoute
+  '/audiencias': typeof AudienciasRoute
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/funil': typeof FunilRoute
@@ -139,6 +147,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ads': typeof AdsRoute
+  '/audiencias': typeof AudienciasRoute
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/funil': typeof FunilRoute
@@ -158,6 +167,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/ads'
+    | '/audiencias'
     | '/estoque'
     | '/financeiro'
     | '/funil'
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/ads'
+    | '/audiencias'
     | '/estoque'
     | '/financeiro'
     | '/funil'
@@ -192,6 +203,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/ads'
+    | '/audiencias'
     | '/estoque'
     | '/financeiro'
     | '/funil'
@@ -210,6 +222,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdsRoute: typeof AdsRoute
+  AudienciasRoute: typeof AudienciasRoute
   EstoqueRoute: typeof EstoqueRoute
   FinanceiroRoute: typeof FinanceiroRoute
   FunilRoute: typeof FunilRoute
@@ -239,6 +252,13 @@ declare module '@tanstack/react-router' {
       path: '/ads'
       fullPath: '/ads'
       preLoaderRoute: typeof AdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audiencias': {
+      id: '/audiencias'
+      path: '/audiencias'
+      fullPath: '/audiencias'
+      preLoaderRoute: typeof AudienciasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/estoque': {
@@ -338,6 +358,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdsRoute: AdsRoute,
+  AudienciasRoute: AudienciasRoute,
   EstoqueRoute: EstoqueRoute,
   FinanceiroRoute: FinanceiroRoute,
   FunilRoute: FunilRoute,
