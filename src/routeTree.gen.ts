@@ -16,6 +16,7 @@ import { Route as AudienciasRouteImport } from './routes/audiencias'
 import { Route as EstoqueRouteImport } from './routes/estoque'
 import { Route as FinanceiroRouteImport } from './routes/financeiro'
 import { Route as FunilRouteImport } from './routes/funil'
+import { Route as InfluencersRouteImport } from './routes/influencers'
 import { Route as LiveShopRouteImport } from './routes/live-shop'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as RemarketingRouteImport } from './routes/remarketing'
@@ -61,6 +62,11 @@ const FinanceiroRoute = FinanceiroRouteImport.update({
 const FunilRoute = FunilRouteImport.update({
   id: '/funil',
   path: '/funil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfluencersRoute = InfluencersRouteImport.update({
+  id: '/influencers',
+  path: '/influencers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LiveShopRoute = LiveShopRouteImport.update({
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/funil': typeof FunilRoute
+  '/influencers': typeof InfluencersRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/remarketing': typeof RemarketingRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/funil': typeof FunilRoute
+  '/influencers': typeof InfluencersRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/remarketing': typeof RemarketingRoute
@@ -168,6 +176,7 @@ export interface FileRoutesById {
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
   '/funil': typeof FunilRoute
+  '/influencers': typeof InfluencersRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/remarketing': typeof RemarketingRoute
@@ -190,6 +199,7 @@ export interface FileRouteTypes {
     | '/estoque'
     | '/financeiro'
     | '/funil'
+    | '/influencers'
     | '/live-shop'
     | '/produtos'
     | '/remarketing'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/estoque'
     | '/financeiro'
     | '/funil'
+    | '/influencers'
     | '/live-shop'
     | '/produtos'
     | '/remarketing'
@@ -230,6 +241,7 @@ export interface FileRouteTypes {
     | '/estoque'
     | '/financeiro'
     | '/funil'
+    | '/influencers'
     | '/live-shop'
     | '/produtos'
     | '/remarketing'
@@ -251,6 +263,7 @@ export interface RootRouteChildren {
   EstoqueRoute: typeof EstoqueRoute
   FinanceiroRoute: typeof FinanceiroRoute
   FunilRoute: typeof FunilRoute
+  InfluencersRoute: typeof InfluencersRoute
   LiveShopRoute: typeof LiveShopRoute
   ProdutosRoute: typeof ProdutosRoute
   RemarketingRoute: typeof RemarketingRoute
@@ -313,6 +326,13 @@ declare module '@tanstack/react-router' {
       path: '/funil'
       fullPath: '/funil'
       preLoaderRoute: typeof FunilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/influencers': {
+      id: '/influencers'
+      path: '/influencers'
+      fullPath: '/influencers'
+      preLoaderRoute: typeof InfluencersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/live-shop': {
@@ -403,6 +423,7 @@ const rootRouteChildren: RootRouteChildren = {
   EstoqueRoute: EstoqueRoute,
   FinanceiroRoute: FinanceiroRoute,
   FunilRoute: FunilRoute,
+  InfluencersRoute: InfluencersRoute,
   LiveShopRoute: LiveShopRoute,
   ProdutosRoute: ProdutosRoute,
   RemarketingRoute: RemarketingRoute,
