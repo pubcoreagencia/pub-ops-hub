@@ -19,6 +19,7 @@ import { Route as FunilRouteImport } from './routes/funil'
 import { Route as InfluencersRouteImport } from './routes/influencers'
 import { Route as LiveShopRouteImport } from './routes/live-shop'
 import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as RankingRouteImport } from './routes/ranking'
 import { Route as RemarketingRouteImport } from './routes/remarketing'
 import { Route as TrackingRouteImport } from './routes/tracking'
 import { Route as UtmRouteImport } from './routes/utm'
@@ -79,6 +80,11 @@ const ProdutosRoute = ProdutosRouteImport.update({
   path: '/produtos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RankingRoute = RankingRouteImport.update({
+  id: '/ranking',
+  path: '/ranking',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RemarketingRoute = RemarketingRouteImport.update({
   id: '/remarketing',
   path: '/remarketing',
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/influencers': typeof InfluencersRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
   '/remarketing': typeof RemarketingRoute
   '/tracking': typeof TrackingRoute
   '/utm': typeof UtmRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/influencers': typeof InfluencersRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
   '/remarketing': typeof RemarketingRoute
   '/tracking': typeof TrackingRoute
   '/utm': typeof UtmRoute
@@ -179,6 +187,7 @@ export interface FileRoutesById {
   '/influencers': typeof InfluencersRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/ranking': typeof RankingRoute
   '/remarketing': typeof RemarketingRoute
   '/tracking': typeof TrackingRoute
   '/utm': typeof UtmRoute
@@ -202,6 +211,7 @@ export interface FileRouteTypes {
     | '/influencers'
     | '/live-shop'
     | '/produtos'
+    | '/ranking'
     | '/remarketing'
     | '/tracking'
     | '/utm'
@@ -223,6 +233,7 @@ export interface FileRouteTypes {
     | '/influencers'
     | '/live-shop'
     | '/produtos'
+    | '/ranking'
     | '/remarketing'
     | '/tracking'
     | '/utm'
@@ -244,6 +255,7 @@ export interface FileRouteTypes {
     | '/influencers'
     | '/live-shop'
     | '/produtos'
+    | '/ranking'
     | '/remarketing'
     | '/tracking'
     | '/utm'
@@ -266,6 +278,7 @@ export interface RootRouteChildren {
   InfluencersRoute: typeof InfluencersRoute
   LiveShopRoute: typeof LiveShopRoute
   ProdutosRoute: typeof ProdutosRoute
+  RankingRoute: typeof RankingRoute
   RemarketingRoute: typeof RemarketingRoute
   TrackingRoute: typeof TrackingRoute
   UtmRoute: typeof UtmRoute
@@ -349,6 +362,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ranking': {
+      id: '/ranking'
+      path: '/ranking'
+      fullPath: '/ranking'
+      preLoaderRoute: typeof RankingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/remarketing': {
       id: '/remarketing'
       path: '/remarketing'
@@ -426,6 +446,7 @@ const rootRouteChildren: RootRouteChildren = {
   InfluencersRoute: InfluencersRoute,
   LiveShopRoute: LiveShopRoute,
   ProdutosRoute: ProdutosRoute,
+  RankingRoute: RankingRoute,
   RemarketingRoute: RemarketingRoute,
   TrackingRoute: TrackingRoute,
   UtmRoute: UtmRoute,
