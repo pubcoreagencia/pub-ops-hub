@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdsRouteImport } from './routes/ads'
 import { Route as EstoqueRouteImport } from './routes/estoque'
 import { Route as FinanceiroRouteImport } from './routes/financeiro'
+import { Route as FunilRouteImport } from './routes/funil'
 import { Route as LiveShopRouteImport } from './routes/live-shop'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as FornecedoresIndexRouteImport } from './routes/fornecedores.index'
@@ -40,6 +41,11 @@ const EstoqueRoute = EstoqueRouteImport.update({
 const FinanceiroRoute = FinanceiroRouteImport.update({
   id: '/financeiro',
   path: '/financeiro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FunilRoute = FunilRouteImport.update({
+  id: '/funil',
+  path: '/funil',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LiveShopRoute = LiveShopRouteImport.update({
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/ads': typeof AdsRoute
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
+  '/funil': typeof FunilRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/ads': typeof AdsRoute
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
+  '/funil': typeof FunilRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
@@ -117,6 +125,7 @@ export interface FileRoutesById {
   '/ads': typeof AdsRoute
   '/estoque': typeof EstoqueRoute
   '/financeiro': typeof FinanceiroRoute
+  '/funil': typeof FunilRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
   '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
@@ -133,6 +142,7 @@ export interface FileRouteTypes {
     | '/ads'
     | '/estoque'
     | '/financeiro'
+    | '/funil'
     | '/live-shop'
     | '/produtos'
     | '/fornecedores/$supplierId'
@@ -147,6 +157,7 @@ export interface FileRouteTypes {
     | '/ads'
     | '/estoque'
     | '/financeiro'
+    | '/funil'
     | '/live-shop'
     | '/produtos'
     | '/fornecedores/$supplierId'
@@ -161,6 +172,7 @@ export interface FileRouteTypes {
     | '/ads'
     | '/estoque'
     | '/financeiro'
+    | '/funil'
     | '/live-shop'
     | '/produtos'
     | '/fornecedores/$supplierId'
@@ -176,6 +188,7 @@ export interface RootRouteChildren {
   AdsRoute: typeof AdsRoute
   EstoqueRoute: typeof EstoqueRoute
   FinanceiroRoute: typeof FinanceiroRoute
+  FunilRoute: typeof FunilRoute
   LiveShopRoute: typeof LiveShopRoute
   ProdutosRoute: typeof ProdutosRoute
   FornecedoresSupplierIdRoute: typeof FornecedoresSupplierIdRoute
@@ -214,6 +227,13 @@ declare module '@tanstack/react-router' {
       path: '/financeiro'
       fullPath: '/financeiro'
       preLoaderRoute: typeof FinanceiroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/funil': {
+      id: '/funil'
+      path: '/funil'
+      fullPath: '/funil'
+      preLoaderRoute: typeof FunilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/live-shop': {
@@ -280,6 +300,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdsRoute: AdsRoute,
   EstoqueRoute: EstoqueRoute,
   FinanceiroRoute: FinanceiroRoute,
+  FunilRoute: FunilRoute,
   LiveShopRoute: LiveShopRoute,
   ProdutosRoute: ProdutosRoute,
   FornecedoresSupplierIdRoute: FornecedoresSupplierIdRoute,
