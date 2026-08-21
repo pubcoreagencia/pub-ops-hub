@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LiveShopRouteImport } from './routes/live-shop'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as FornecedoresIndexRouteImport } from './routes/fornecedores.index'
+import { Route as FornecedoresSupplierIdRouteImport } from './routes/fornecedores.$supplierId'
 import { Route as LojasIndexRouteImport } from './routes/lojas.index'
 import { Route as LojasStoreIdRouteImport } from './routes/lojas.$storeId'
 import { Route as PedidosIndexRouteImport } from './routes/pedidos.index'
@@ -36,6 +37,11 @@ const ProdutosRoute = ProdutosRouteImport.update({
 const FornecedoresIndexRoute = FornecedoresIndexRouteImport.update({
   id: '/fornecedores/',
   path: '/fornecedores/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FornecedoresSupplierIdRoute = FornecedoresSupplierIdRouteImport.update({
+  id: '/fornecedores/$supplierId',
+  path: '/fornecedores/$supplierId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LojasIndexRoute = LojasIndexRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
   '/fornecedores/': typeof FornecedoresIndexRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
   '/fornecedores': typeof FornecedoresIndexRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/live-shop': typeof LiveShopRoute
   '/produtos': typeof ProdutosRoute
+  '/fornecedores/$supplierId': typeof FornecedoresSupplierIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
   '/pedidos/$orderId': typeof PedidosOrderIdRoute
   '/fornecedores/': typeof FornecedoresIndexRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/live-shop'
     | '/produtos'
+    | '/fornecedores/$supplierId'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
     | '/fornecedores/'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/live-shop'
     | '/produtos'
+    | '/fornecedores/$supplierId'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
     | '/fornecedores'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/live-shop'
     | '/produtos'
+    | '/fornecedores/$supplierId'
     | '/lojas/$storeId'
     | '/pedidos/$orderId'
     | '/fornecedores/'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LiveShopRoute: typeof LiveShopRoute
   ProdutosRoute: typeof ProdutosRoute
+  FornecedoresSupplierIdRoute: typeof FornecedoresSupplierIdRoute
   LojasStoreIdRoute: typeof LojasStoreIdRoute
   PedidosOrderIdRoute: typeof PedidosOrderIdRoute
   FornecedoresIndexRoute: typeof FornecedoresIndexRoute
@@ -164,6 +177,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FornecedoresIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fornecedores/$supplierId': {
+      id: '/fornecedores/$supplierId'
+      path: '/fornecedores/$supplierId'
+      fullPath: '/fornecedores/$supplierId'
+      preLoaderRoute: typeof FornecedoresSupplierIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lojas/': {
       id: '/lojas/'
       path: '/lojas'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LiveShopRoute: LiveShopRoute,
   ProdutosRoute: ProdutosRoute,
+  FornecedoresSupplierIdRoute: FornecedoresSupplierIdRoute,
   LojasStoreIdRoute: LojasStoreIdRoute,
   PedidosOrderIdRoute: PedidosOrderIdRoute,
   FornecedoresIndexRoute: FornecedoresIndexRoute,
